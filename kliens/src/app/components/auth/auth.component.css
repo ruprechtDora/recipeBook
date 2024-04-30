@@ -1,0 +1,56 @@
+.container-fluid {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #acf722 70%, #b5fc31 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
+.container-fluid::before {
+  content: 'RECIPE BOOK';
+  font-family: 'Poppins', sans-serif;
+  top: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+  width: 100%;
+  color: white;
+  font-size: 8rem;
+  text-align: center;
+  z-index: 0;
+  opacity: 0.7;
+  letter-spacing: 0.2em;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.form {
+  z-index: 999;
+  width: 100%;
+  padding: 30px;
+  border-radius: 6px;
+  background: white;
+  height: 100%;
+}
+
+::ng-deep .mat-mdc-tab-body-wrapper {
+  height: 100% !important;
+  width: 100% !important;
+  min-width: 40vw !important;
+  min-height: 40vh !important;
+}
+
+.mat-mdc-tab-group {
+  background-color: white !important;
+  font-family: 'Poppins', sans-serif;
+}
+
+::ng-deep .mat-mdc-tab .mdc-tab__text-label {
+  color: #7b1fa2 !important;
+}

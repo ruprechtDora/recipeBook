@@ -1,0 +1,75 @@
+<h1 mat-dialog-title  *ngIf="mode === 'SAVE'">Add your recipe</h1>
+<h1 mat-dialog-title  *ngIf="mode === 'UPDATE'">Update recipe</h1>
+
+<mat-dialog-content>
+  <div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12 mt-2">
+      <input type="text" class="form-control shadow-none" placeholder="Name" [formControl]="recipeForm.controls.name">
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mt-2">
+      <input type="number" min="1" class="form-control shadow-none" placeholder="Servings" [formControl]="recipeForm.controls.servings">
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mt-2">
+      <input type="number" min="1" class="form-control shadow-none" placeholder="Time" [formControl]="recipeForm.controls.prepTimeInMinutes">
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+      <textarea class="form-control shadow-none"rows="5" placeholder="Description" [formControl]="recipeForm.controls.shortDescription"></textarea>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+      <h5>Recipe image</h5><br>
+      <input #uploadImage id="uploadImage" type="file" accept="image/png, image/gif, image/jpeg" (change)="changeImage($event)">
+    </div>
+  </div>
+  <div class="row mt-2">
+    <h5>Ingredients</h5>
+    <div class="col-lg-4 mt-2">
+      <input type="text" placeholder="Name" class="form-control shadow-none" [formControl]="ingredientNameControl">
+    </div>
+    <div class="col-lg-3 mt-2">
+      <input type="number" placeholder="Amount" class="form-control shadow-none" [formControl]="ingredientAmountControl">
+    </div>
+    <div class="col-lg-3 mt-2">
+      <select class="form-select shadow-none" [formControl]="ingredientMeasureControl">
+        <option selected value="">Measure</option>
+        <option value="kg">kg</option>
+        <option value="dkg">dkg</option>
+        <option value="g">g</option>
+        <option value="tbs">tbs</option>
+        <option value="tsp">tsp</option>
+        <option value="ml">ml</option>
+        <option value="l">l</option>
+        <option value="dl">dl</option>
+      </select>
+    </div>
+    <div class="col-lg-2">
+      <button mat-mini-fab color="primary" (click)="addIngredient()"><mat-icon>add</mat-icon></button>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+      <ul>
+        <li *ngFor="let ingredient of ingredients">{{ingredient.amount}} {{ingredient.unitOfMeasure}} {{ingredient.ingredientName}}</li>
+      </ul>
+      <button *ngIf="ingredients.length > 0" mat-flat-button color="warn" (click)="clearIngredients()">Clear ingredients</button>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h5>Directions</h5>
+      <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+        <textarea class="form-control shadow-none"rows="5" [formControl]="recipeForm.controls.directions"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h5>Notes</h5>
+      <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+        <textarea class="form-control shadow-none"rows="3" [formControl]="recipeForm.controls.notes"></textarea>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions style="float: right">
+  <button *ngIf="mode === 'SAVE'" mat-button color="primary" (click)="saveRecipe()">Add recipe</button>
+  <button *ngIf="mode === 'UPDATE'" mat-button color="primary" (click)="updateRecipe()" >Update recipe</button>
+  <button mat-button mat-dialog-close color="primary">Cancel</button>
+</mat-dialog-actions>

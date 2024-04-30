@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import "~@fortawesome/fontawesome-free/css/all.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page-content {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 78px);
+    right: 0;
+    transition: all .5s ease;
+    overflow: auto;
+}
+
+.page-content.opened {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 240px);
+    right: 0;
+}
+
+.mat-snack-bar-container-success {
+  background: green;
+}
+
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: white !important;
+  --mdc-dialog-subhead-color: black !important;
+  --mdc-dialog-supporting-text-color: black !important;
+}

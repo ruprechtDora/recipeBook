@@ -1,0 +1,58 @@
+<ng-container *ngIf="(recipe$ | async) as recipe">
+<div class="container">
+    <mat-icon routerLink="/recipes" style="cursor: pointer;">arrow_back</mat-icon>
+  <div class="row">
+    <div class="col-lg-4">
+      <img src="{{recipe.image ? 'data:image/png;base64,' + recipe.image : '../assets/img-placeholder.png'}}" class="img-thumbnail">
+    </div>
+    <div class="col-lg-6">
+      <p>{{recipe.shortDescription}}</p>
+    </div>
+    <div class="col-lg-2">
+      <button mat-flat-button color="primary" (click)="updateRecipe(recipe)">Update recipe</button>
+    </div>
+  </div>
+  <div class="row mt-5" style="height: 60vh;">
+    <div class="col-lg-4 container-wrapper">
+      <div class="name-wrapper">
+        <strong>{{recipe.name}}</strong>
+      </div>
+      <div class="mt-3">
+        <div class="row">
+          <div class="col-lg-3">
+            <i class="fa-regular fa-clock"></i>
+            <span>{{recipe.prepTimeInMinutes}} min</span>
+          </div>
+          <div class="col-lg-6">
+            <i class="fa-solid fa-plate-wheat"></i>
+            <span>{{recipe.servings}} servings</span>
+          </div>
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <span>INGREDIENTS</span>
+          </div>
+          <div class="col-lg-12">
+            <ul *ngFor="let ingredient of recipe.ingredients">
+              <li>{{ingredient.amount}} {{ingredient.unitOfMeasure}} {{ingredient.ingredientName}}</li>
+            </ul>
+          </div>
+          <div class="col-lg-12 mt-5">
+            <span>NOTES</span>
+            <p>
+             {{recipe.notes}}
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mx-5">
+      <div class="name-wrapper w-50">
+        <strong>Directions</strong>
+      </div>
+      <br>
+      <p>{{recipe.directions}}</p>
+    </div>
+  </div>
+</div>
+</ng-container>

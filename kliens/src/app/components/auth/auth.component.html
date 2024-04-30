@@ -1,0 +1,54 @@
+<section class="container-fluid">
+  <div class="mat-elevation-z4">
+    <mat-tab-group>
+      <div class="content">
+        <mat-tab label="Sign in">
+          <div class="form">
+            <div>
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <input type="text" class="form-control shadow-none" placeholder="Username" [formControl]="loginUserNameFormControl">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <input (keydown.enter)="signIn()" type="password" class="form-control shadow-none" placeholder="Password" [formControl]="loginPasswordFormControl">
+                    </div>
+                </div>
+                <div class="w-100 d-flex justify-content-right mt-3">
+                    <button mat-flat-button color="primary" class="ms-auto" (click)="signIn()">Sign In</button>
+                </div>
+              </div>
+        </div>
+        </mat-tab>
+        <mat-tab label="Sign up">
+          <div class="form">
+            <div>
+                <div class="row">
+                  <div class="col-6">
+                    <input type="text" class="form-control shadow-none" placeholder="First name" [formControl]="registerForm.controls.firstName">
+                  </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control shadow-none" placeholder="Last name" [formControl]="registerForm.controls.lastName">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <input type="text" class="form-control shadow-none" placeholder="Username" [formControl]="registerForm.controls.username">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <input type="password" class="form-control shadow-none" placeholder="Password" [formControl]="registerForm.controls.password">
+                    </div>
+                </div>
+                <div class="w-100 d-flex justify-content-right mt-3">
+                    <button mat-flat-button color="primary" class="ms-auto" (click)="signUp()">Sign Up</button>
+                </div>
+              </div>
+        </div>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
+  </div>
+</section>

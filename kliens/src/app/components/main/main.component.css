@@ -1,0 +1,407 @@
+.sidebar {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 78px;
+  background: #29A8E2;
+  background: linear-gradient(180deg,  #acf722 70%, #b5fc31 100%);
+  transition: all 0.5s ease;
+  font-family: 'Poppins';
+  z-index: 999;
+}
+
+.sidebar.active {
+  width: 240px;
+}
+
+.sidebar-content {
+  margin: 6px;
+  margin-left: 0;
+  height: 100%;
+  position: relative;
+}
+
+.sidebar.active .sidebar-content {
+  margin: 6px 14px 6px;
+  margin-left: 0;
+}
+
+.sidebar .logo-content {
+  padding-left: 15px;
+}
+
+.sidebar .logo-content .logo {
+  color: white;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.active .logo-content .logo {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.logo-content .logo .logo-name {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.sidebar .menu-icon {
+  position: absolute;
+  color: white;
+  left: 50%;
+  top: 6px;
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.sidebar.active .menu-icon {
+  left: 90%;
+}
+
+.sidebar.active .profile-content {
+  position: relative;
+  width: 100%;
+  color: white;
+}
+
+
+.sidebar .profile-content .profile {
+  text-align: center;
+  margin: 0px 10px 0px 10px;
+  display: flex;
+  transition: all 0.5s ease;
+}
+
+.sidebar .profile-content .profile .profile-details {
+  align-items: center;
+  width: 100%;
+  display:inline-block;
+  position:relative
+}
+
+.sidebar .profile-content .profile .profile-details img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.sidebar.active .profile-content .profile .profile-details img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.sidebar .profile-content .profile .profile-details .name {
+  height: 30px;
+  line-height: 30px;
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.sidebar.active .profile-content .profile .profile-details .name {
+  display: block;
+  color: white;
+}
+
+.sidebar .profile-content .profile .profile-details .expirationDate {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.sidebar.active .profile-content .profile .profile-details .expirationDate {
+  display: block;
+  color: white;
+  font-size: 12px;
+}
+
+.sidebar .nav-list,
+.sidebar .nav-list li .sub-menu {
+  padding: 0;
+}
+.sidebar .nav-list li,
+.sidebar.active .nav-list li .sub-menu li {
+  position: relative;
+  width: 100%;
+  margin: 0 6px 0 0;
+  padding-left: 6px 0 0 0;
+  list-style: none;
+  line-height: 50px;
+}
+
+.sidebar-footer {
+  width: 100%;
+  padding-left: 6px 0 14px 0;
+  list-style: none;
+  line-height: 50px;
+  position: absolute;
+  bottom: 20px;
+}
+
+.sidebar.active .nav-list li .sub-menu {
+  background-color: rgb(41, 168, 226, .2);
+  position: static;
+  top: 0;
+  left: 0;
+  border-radius: unset;
+  margin-right: -14px;
+  padding-right: 14px;
+  box-shadow: none;
+  opacity: 0;
+  pointer-events: none;
+  height: 0px;
+}
+
+.sidebar .nav-list li .sub-menu {
+  position: absolute;
+  top: -20px;
+  left: 100%;
+  border-radius: 20px;
+  background: white;
+  font-size: 1em;
+  line-height: 20px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0, 0.2);
+  opacity: 0;
+  padding: 5px 14px 5px 0px;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sidebar.active .nav-list li .sub-menu li a {
+  color: white;
+
+}
+.sidebar .nav-list li .sub-menu li a {
+  color: black;
+}
+
+.sidebar .nav-list li .sub-menu li a.active {
+  background-color: white;
+  color: black;
+}
+.sidebar.active .nav-list li .sub-menu.show-menu {
+  opacity: 1;
+  pointer-events: auto;
+  height: auto;
+  transition: all 0.5s ease;
+}
+
+.sidebar .nav-list li .sub-menu.show-menu {
+  opacity: 1;
+  pointer-events: auto;
+  top: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar .nav-list li .tooltip,
+.sidebar .sidebar-footer .tooltip {
+  position: absolute;
+  left: 135px;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  height: 35px;
+  width: 125px;
+  background: white;
+  font-size: 1em;
+  line-height: 20px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  font-family: 'Poppins';
+}
+
+.sidebar.active .nav-list li .tooltip,
+.sidebar.active .sidebar-footer .tooltip {
+  display: none;
+}
+.sidebar .nav-list li:hover .tooltip,
+.sidebar .sidebar-footer:hover .tooltip {
+  transition: all 0.5s ease;
+  top: 50%;
+  opacity: 1;
+}
+
+.sidebar .nav-list li a,
+.sidebar-footer a {
+  color: white;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition:  all 0.4s ease;
+  border-radius: 0px 25px 25px 0px;
+  white-space: nowrap;
+}
+
+.sidebar .nav-list li a.active,
+.sidebar-footer a.active {
+  background-color: #62cdff7c;
+  color: white;
+}
+
+.sidebar.active .nav-list li a.active,
+.sidebar-footer a.active {
+  background-color: #62cdff7c;
+  color: white;
+}
+
+.sidebar.active .nav-list li .sub-menu.show-menu li a.active {
+  background-color: #62cdff7c;
+  color: white;
+}
+
+.sidebar .nav-list li .sub-menu li a.active {
+  background-color: #155471;
+  color: white;
+}
+
+
+.sidebar .nav-list li a:hover,
+.sidebar-footer a:hover {
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+.sidebar .nav-list li a mat-icon,
+.sidebar-footer a mat-icon {
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.multi-level {
+  cursor: pointer;
+}
+
+.multi-level.opened {
+  background-color: #62cdff7c;
+  color: white !important;
+}
+
+.sidebar .nav-list li .blank .link-name,
+.sidebar .nav-list li .multi-level .link-name,
+.sidebar-footer a .link-name {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.active .nav-list li .blank .link-name,
+.sidebar.active .nav-list  li .multi-level .link-name,
+.sidebar.active .sidebar-footer a .link-name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar.active .nav-list li .sub-menu.show-menu li a .link-name {
+  margin-left: 60px;
+}
+
+.sidebar .nav-list li .sub-menu.show-menu li a .link-name {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.sidebar.active .nav-list li .sub-menu li a:hover {
+  background-color: rgb(255, 255, 255, 0.5);
+}
+.sidebar .nav-list li .sub-menu li a:hover {
+  background-color: rgb(41, 168, 226, .2);
+}
+
+a {
+  cursor: pointer;
+}
+
+.sidebar.active .profile-button{
+  position: absolute;
+  top: 0;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.sidebar .profile-button{
+  position: absolute;
+  color: white;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  left: 19%;
+  top: 62%;
+  cursor: pointer;
+  transition: all 0.6s ease
+}
+
+.sidebar .profile-button-icon{
+  position: absolute;
+  left: 20%;
+  background: #acf722;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  line-height: 30px;
+}
+
+.sidebar.active .profile-button-icon{
+  position: absolute;
+  font-size: 27px;
+  top: 5%;
+  left: 22.5%;
+  left: 22.5%;
+  background: #acf722;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  padding: 2px;
+  padding-top: 1px;
+}
+
+.info{
+  position: absolute;
+  color: white;
+  left: 46%;
+  top: 1px;
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.staticText{
+  position: fixed;
+  bottom:0;
+  right:0;
+  font-size: 7px;
+}
+
+.mat-drawer-container {
+  height: 100%;
+}
+
+.page-content-row {
+  width: 100%;
+  padding: 2em;
+  font-family: 'Poppins';
+}

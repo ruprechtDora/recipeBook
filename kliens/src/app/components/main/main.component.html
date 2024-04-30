@@ -1,0 +1,47 @@
+<div class="sidebar"  [ngClass]="isOpened ? 'active' : ''">
+  <div class="sidebar-content">
+      <div class="logo-content" >
+          <div class="logo" >
+              <div class="logo-name">Recipe Book</div>
+          </div>
+          <mat-icon class="menu-icon" (click)="toggleSidebar()">menu</mat-icon>
+      </div>
+      <div class="profile-content">
+          <div class="profile">
+              <div class="profile-details">
+                    <img [src]="imgUrl"/>
+                    <ng-container *ngIf="(userData$ | async) as userData">
+                        <div class="name">{{userData.firstName}} {{userData.lastName}}</div>
+                        <div class="profile-button" (click)="openUserOperationDialog(userData)">
+                          <mat-icon class="profile-button-icon">settings</mat-icon>
+                        </div>
+                    </ng-container>
+                </div>
+
+          </div>
+      </div>
+      <ul class="nav-list mt-5" >
+        <li>
+            <a matRipple [routerLink]="['/recipes']" routerLinkActive="active" class="blank">
+                <mat-icon>library_books</mat-icon>
+                <span class="link-name">Recipes</span>
+            </a>
+            <span class="tooltip">Reciepes</span>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+          <a matRipple (click)="logout()">
+              <mat-icon>logout</mat-icon>
+              <span class="link-name">Log out</span>
+          </a>
+          <span class="tooltip">Log out</span>
+      </div>
+  </div>
+</div>
+<div class="page-content" [ngClass]="isOpened ? 'opened' : ''">
+  <div class="page-content-row row">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

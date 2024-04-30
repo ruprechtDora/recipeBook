@@ -1,0 +1,10 @@
+.container-wrapper {
+  background-color: #fff2df;
+}
+
+.name-wrapper {
+  font-size: 32px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 100;
+  border-bottom:  1px solid black;
+}

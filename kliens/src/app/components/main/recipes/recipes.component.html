@@ -1,0 +1,35 @@
+<ng-container *ngIf="recipes$ | async"></ng-container>
+<ng-container *ngIf="searchControl$ | async"></ng-container>
+<div class="row">
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <input class="form-control shadow-none" placeholder="Search" [formControl]="searchControl">
+  </div>
+  <div class="col-lg-3 col-md-12 col-sm-12">
+    <button mat-flat-button color="primary"(click)="addRecipe()">Add recipe<mat-icon>add</mat-icon></button>
+  </div>
+</div>
+<div class="row mt-5">
+    <div class="col-lg-6 col-md-12 col-sm-12" *ngFor="let recipe of recipes">
+        <div class="mt-3 row">
+          <div class="col-lg-6  ">
+            <img src="{{recipe.image ? 'data:image/png;base64,' + recipe.image : '../assets/img-placeholder.png'}}" alt="picture of food" class="img-thumbnail mb-1 image-wrapper">
+          </div>
+            <div class="card-body col-lg-6 col-md-6">
+              <div>
+                <strong>{{recipe.name}}</strong>
+              </div>
+              <div style="min-height: 175px;">
+                <p class="align-text">{{recipe.shortDescription}}</p>
+              </div>
+              <div class="card-footer float-end">
+                <button mat-mini-fab color="primary" class="mx-2" (click)="editRecipe(recipe)">
+                  <mat-icon>create</mat-icon>
+                </button>
+                <button mat-mini-fab color="warn" (click)="deleteRecipe(recipe.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
